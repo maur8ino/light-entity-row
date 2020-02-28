@@ -1,3 +1,6 @@
+import { deepClone } from "deep-clone-simple";
+// https://github.com/balloob/deep-clone-simple
+
 const SUPPORT_BRIGHTNESS = 1<<0
 const SUPPORT_COLOR_TEMP = 1<<1
 const SUPPORT_EFFECT = 1<<2
@@ -171,7 +174,7 @@ class AdjustableLightEntityRow extends Polymer.Element {
       throw new Error(`invalid entity ${config.entity}`)
     }
     
-    this._config = config;
+    this._config = deepClone(config);
     this._config.buttons = config.buttons || []
 
     
